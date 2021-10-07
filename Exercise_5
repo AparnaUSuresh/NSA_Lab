@@ -1,0 +1,83 @@
+1)Write a shell script that takes a command line argument and reports on
+whether it is directory, a file, or something else.
+
+
+printf "\nEnter a directory /file path";
+read value;
+if [ -d $value ]
+ then
+   echo "$value is a directory"
+elif [ -f $value ]
+ then 
+    echo "$value is a file"
+else 
+  echo " $value is not valid"
+fi 
+
+
+2) Write a shell script that computes the gross salary of a employee according
+to the following rules :
+i) if basic salary is < 1500 then HRA =10% of the basic and DA =90% of the basic.
+ii) If basic salary is >=1500 then HRA =Rs500 and DA=98% of the basic.
+
+
+printf "\n Enter the salary\n";
+read sal;
+if (($sal<1500))
+then
+echo "$(($sal+($sal*10/100)+($sal*90/100)))";
+else
+echo "$(($sal+500+($sal*98/100)))";
+fi
+
+3)Write a shell script that accepts two integers as its arguments and
+computes the value of first number raised to the power of the second
+number.
+#!/bin/bash
+echo "First number";
+read n1;
+echo " ";
+echo "Second number";
+read n2;
+echo " ";
+echo "$n1^$n2 is=$(($n1**$n2))";
+
+4)Write a shell script which receives two file names as arguments. It should
+check whether the two file contents are same or not. If they are same then
+second file should be deleted.
+
+#!/bin/bash
+echo "Enter file1";
+read f1;
+echo "Enter file2";
+read f2;
+if ( diff $f1 $f2)
+then 
+rm -i $f2
+else
+echo "Different files";
+fi
+
+5)Write a shell script for Calculator
+#!/bin/bash
+printf "\n1.Add\n2.Sub\n3.Multiply\n4.Divide\n5.Exit";
+echo "Enter choice ";
+read opt;
+echo "First number:";
+read n1
+echo "second number:";
+read n2
+if [ $opt = "1" ]
+then
+echo $((n1+n2))
+elif [ $opt = "2" ]
+then
+echo $((n1-n2))
+elif [ $opt = "3" ]
+then
+echo $((n1*n2))
+elif [ $opt = "4" ]
+then
+echo $((n1/n2))
+fi
+exit 0
