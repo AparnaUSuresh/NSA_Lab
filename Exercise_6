@@ -1,0 +1,25 @@
+1) Write shell script to show various system configuration like
+* Currently logged user and his log in name
+* Your current shell
+* Your home directory
+* Your operating system type
+* Your current working directory
+
+
+echo $(whoami)
+echo $(who)
+echo $(ls /home/$(whoami))
+echo $(uname -o)
+echo $(pwd)
+
+
+2) Write shell script to show various system configurations like
+• your OS and version, release number, kernel version
+•all available shells
+• File system (Mounted)
+
+echo $(uname -o)
+echo $(uname -r)
+echo $(uname -v)
+echo $(cat /etc/shells)
+echo $(mount | column -t -s " ")
